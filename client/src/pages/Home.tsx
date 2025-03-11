@@ -5,7 +5,6 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import PRPathways from "@/components/PRPathways";
 import OurServices from "@/components/OurServices";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import CTABanner from "@/components/CTABanner";
 import AssessmentForm from "@/components/AssessmentForm";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -20,7 +19,6 @@ export default function Home() {
       <PRPathways />
       <OurServices />
       <ProcessTimeline />
-      <CTABanner />
       <AssessmentForm />
       <FAQ />
       <Footer />
