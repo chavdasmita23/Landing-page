@@ -10,46 +10,50 @@ import { useState } from "react";
 
 const benefits = [
   {
-    icon: <GraduationCap className="h-8 w-8" />,
-    title: "World-Class Education",
-    description: "Access to globally recognized universities and education institutions for you and your family.",
-    image: "/images/canada-education.jpg",
-    details: [
-      "Canadian universities consistently rank in the global top 100",
-      "Affordable tuition compared to the US and UK",
-      "Educational options for all family members",
-      "Research opportunities across diverse fields"
-    ]
-  },
-  {
-    icon: <Heart className="h-8 w-8" />,
+    id: "healthcare",
     title: "Healthcare System",
+    icon: <Heart className="h-8 w-8" />,
     description: "Benefit from Canada's comprehensive universal healthcare system providing quality medical services.",
-    image: "/images/canada-healthcare.jpg",
+    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     details: [
-      "Universal healthcare coverage for permanent residents",
-      "Low-cost prescription medication programs",
-      "World-class medical facilities and services",
-      "Mental health support systems"
+      "Universal healthcare coverage for all permanent residents",
+      "High-quality medical facilities and professionals",
+      "Shorter wait times for essential medical services",
+      "Comprehensive coverage for most medical needs"
     ]
   },
   {
-    icon: <TrendingUp className="h-8 w-8" />,
+    id: "economy",
     title: "Strong Economy",
+    icon: <TrendingUp className="h-8 w-8" />,
     description: "Enjoy opportunities in a resilient economy with diverse industries and high living standards.",
-    image: "/images/canada-economy.jpg",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     details: [
-      "Multiple thriving sectors including tech and finance",
-      "Stable banking and economic systems",
-      "Strong employment protections",
-      "Competitive salaries and benefits"
+      "Stable banking system and strong financial institutions",
+      "Growing job market across multiple sectors",
+      "Higher than average salaries compared to many countries",
+      "Economic opportunities in emerging industries"
     ]
   },
   {
-    icon: <Home className="h-8 w-8" />,
+    id: "education",
+    title: "World-Class Education",
+    icon: <GraduationCap className="h-8 w-8" />,
+    description: "Access internationally recognized education institutions for you and your family.",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    details: [
+      "Top-ranked universities and research institutions",
+      "High-quality public education system from K-12",
+      "Multicultural learning environments",
+      "Pathway to immigration through education"
+    ]
+  },
+  {
+    id: "lifestyle",
     title: "Quality Lifestyle",
+    icon: <Home className="h-8 w-8" />,
     description: "Experience the perfect balance of work and leisure in Canada's safe, multicultural environment.",
-    image: "/images/canada-lifestyle.jpg",
+    image: "https://images.unsplash.com/photo-1492666673288-3c4b4576ad9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     details: [
       "Consistently ranked among top 5 countries for quality of life",
       "Abundant natural beauty and outdoor recreation",
@@ -89,9 +93,13 @@ export default function WhyCanada() {
           </div>
           <div className="md:w-1/2 relative">
             <img 
-              src="/images/canada-landscape.jpg" 
+              src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
               alt="Canadian landscape" 
               className="rounded-xl shadow-xl object-cover h-80 w-full"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://images.unsplash.com/photo-1494057299270-c9ee37d2d321?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+              }}
             />
             <div className="absolute -bottom-6 -left-6 bg-[#2563EB] text-white p-6 rounded-lg shadow-lg max-w-xs hidden md:block backdrop-blur-sm bg-opacity-90">
               <p className="font-semibold">Canada welcomes over 400,000 new permanent residents annually</p>
@@ -114,16 +122,7 @@ export default function WhyCanada() {
                   loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    // Use different fallback images based on the benefit title for more variety
-                    const fallbacks = {
-                      "Quality of Life": "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                      "Universal Healthcare": "https://images.unsplash.com/photo-1631815588090-d1bcbe9a88b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                      "Cultural Diversity": "https://images.unsplash.com/photo-1541535881962-3bb380b08458?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                      "Economic Stability": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                      "World-Class Education": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                      "Natural Beauty": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                    };
-                    target.src = fallbacks[benefit.title] || "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+                    target.src = "https://via.placeholder.com/1350x800"; // Generic fallback
                     console.log("Image error, using fallback for", benefit.title);
                   }}
                 />

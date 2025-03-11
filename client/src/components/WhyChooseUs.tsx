@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+
 
 const services = [
   {
@@ -112,39 +114,43 @@ export default function WhyChooseUs() {
 
           {services.map((service) => (
             <TabsContent key={service.id} value={service.id} className="mt-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div className="order-2 lg:order-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                  <p className="text-lg text-gray-700 mb-6">{service.description}</p>
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-gray-600 mb-6">{service.description}</p>
 
-                  <ul className="space-y-3 mb-8">
-                    {service.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1">
-                          <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                          </svg>
+                  <ul className="space-y-3">
+                    {service.benefits.map((benefit, i) => (
+                      <li key={i} className="flex items-start">
+                        <div className="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 flex-shrink-0 mt-0.5">
+                          <CheckCircle className="h-3 w-3 text-blue-600" />
                         </div>
-                        <span className="ml-3 text-gray-700">{benefit}</span>
+                        <span className="text-gray-700">{benefit}</span>
                       </li>
                     ))}
                   </ul>
-
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all duration-200 flex items-center">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
                 </div>
 
                 <div className="order-1 lg:order-2">
-                  <div className="overflow-hidden rounded-2xl shadow-xl h-72 lg:h-96">
+                  <div className="overflow-hidden rounded-2xl shadow-xl h-72 lg:h-96 flex items-center justify-center bg-gray-50">
                     <img 
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = "https://images.unsplash.com/photo-1496170690726-449c08455da1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+                        // Different fallback images based on the service type
+                        const fallbacks = {
+                          "express-entry": "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                          "pnp-applications": "https://images.unsplash.com/photo-1571867424488-4565932edb41?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                          "family-sponsorship": "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                          "education-pathways": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                          "business-immigration": "https://images.unsplash.com/photo-1560438718-eb61ede255eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                          "visa-consultations": "https://images.unsplash.com/photo-1517841953087-887c806e8c7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        };
+                        target.src = fallbacks[service.id] || "https://images.unsplash.com/photo-1496170690726-449c08455da1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+                        console.log(`${service.title} image error, using fallback`);
                       }}
                     />
                   </div>

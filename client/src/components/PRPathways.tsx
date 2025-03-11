@@ -25,7 +25,7 @@ const pathwayData = {
           "Permanent residency from day one"
         ],
         color: "blue",
-        image: "https://images.unsplash.com/photo-1498598457418-36ef20772c9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        image: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       },
       {
         title: "Federal Skilled Trades Program",
@@ -77,7 +77,7 @@ const pathwayData = {
           "Pathways for specific occupations and skills"
         ],
         color: "red",
-        image: "https://images.unsplash.com/photo-1560306843-33986aebaf12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        image: "https://images.unsplash.com/photo-1634138235147-532dda21cd0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         provinces: [
           "Ontario - Ontario Immigrant Nominee Program (OINP)",
           "British Columbia - BC Provincial Nominee Program",
@@ -111,7 +111,7 @@ const pathwayData = {
           "Permanent residency from day one"
         ],
         color: "blue",
-        image: "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         eligibleRelatives: [
           "Spouse or common-law partner",
           "Dependent children",
