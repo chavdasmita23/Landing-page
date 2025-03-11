@@ -188,31 +188,26 @@ export default function PRPathways() {
         <Tabs defaultValue="expressEntry" className="max-w-5xl mx-auto" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-12">
             <TabsList className="p-1 bg-gray-100 rounded-full">
-              <TabsTrigger 
-                value="expressEntry" 
-                className="px-6 py-3 rounded-full data-[state=active]:bg-[#2563EB] data-[state=active]:text-white transition-all duration-300"
-              >
-                Express Entry
-              </TabsTrigger>
-              <TabsTrigger 
-                value="pnp" 
-                className="px-6 py-3 rounded-full data-[state=active]:bg-[#E31937] data-[state=active]:text-white transition-all duration-300"
-              >
-                Provincial Nominee
-              </TabsTrigger>
-              <TabsTrigger 
-                value="family" 
-                className="px-6 py-3 rounded-full data-[state=active]:bg-[#2563EB] data-[state=active]:text-white transition-all duration-300"
-              >
-                Family Sponsorship
-              </TabsTrigger>
+              {Object.keys(pathwayData).map((key) => {
+                const isActive = key === activeTab;
+                return (
+                  <TabsTrigger
+                    key={key}
+                    value={key}
+                    className={`px-6 py-3 rounded-full transition-all duration-300 ${key === 'pnp' ? 'data-[state=active]:bg-[#E31937] data-[state=active]:text-white hover:text-[#E31937] data-[state=active]:hover:text-white' : 'data-[state=active]:bg-[#2563EB] data-[state=active]:text-white hover:text-[#2563EB] data-[state=active]:hover:text-white'}`}
+                    onClick={() => setActiveTab(key)}
+                  >
+                    {pathwayData[key as keyof typeof pathwayData].title}
+                  </TabsTrigger>
+                );
+              })}
             </TabsList>
           </div>
 
           {Object.keys(pathwayData).map((pathway) => (
-            <TabsContent 
-              key={pathway} 
-              value={pathway} 
+            <TabsContent
+              key={pathway}
+              value={pathway}
               className="animate-in fade-in-50 duration-500 focus:outline-none"
             >
               <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
@@ -229,7 +224,7 @@ export default function PRPathways() {
                 {/* Carousel Navigation */}
                 {pathwayData[pathway as keyof typeof pathwayData].programs.length > 1 && (
                   <div className="flex justify-between items-center px-8 py-4 border-b border-gray-100">
-                    <button 
+                    <button
                       onClick={prevSlide}
                       className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                     >
@@ -241,8 +236,8 @@ export default function PRPathways() {
                         <button
                           key={index}
                           className={`h-2 w-${currentSlide === index ? '10' : '2'} rounded-full transition-all duration-300 ${
-                            currentSlide === index 
-                              ? (pathway === 'pnp' ? 'bg-[#E31937]' : 'bg-[#2563EB]') 
+                            currentSlide === index
+                              ? (pathway === 'pnp' ? 'bg-[#E31937]' : 'bg-[#2563EB]')
                               : 'bg-gray-300'
                           }`}
                           onClick={() => goToSlide(index)}
@@ -250,7 +245,7 @@ export default function PRPathways() {
                       ))}
                     </div>
 
-                    <button 
+                    <button
                       onClick={nextSlide}
                       className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                     >
@@ -260,43 +255,40 @@ export default function PRPathways() {
                 )}
 
                 {/* Program Carousel */}
-                <div 
+                <div
                   ref={carouselRef}
-                  className="flex overflow-x-hidden scroll-smooth transition-all duration-500"
+                  className="flex overflow-x-auto scroll-smooth transition-all duration-500"
                   style={{ scrollSnapType: 'x mandatory' }}
                 >
                   {pathwayData[pathway as keyof typeof pathwayData].programs.map((program, index) => (
-                    <div 
+                    <div
                       key={index}
-                      className="min-w-full scroll-snap-align-start"
+                      className="min-w-full flex-shrink-0 scroll-snap-align-start"
                       style={{ scrollSnapAlign: 'start' }}
                     >
                       <div className="grid md:grid-cols-2 gap-0">
                         {/* Image Section */}
-                        <div className="relative h-64 md:h-auto">
-                          <img 
-                            src={program.image} 
-                            alt={program.title} 
-                            className="w-full h-full object-cover"
+                        <div className="relative h-64 md:h-auto overflow-hidden">
+                          <img
+                            src={program.image}
+                            alt={program.title}
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                             loading="lazy"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
-                              // Better fallback images based on program type
-                              const fallbacks = {
-                                "Express Entry": "https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "Provincial Nominee Program": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "Family Sponsorship": "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "Atlantic Immigration Program": "https://images.unsplash.com/photo-1594749794743-7ad651ce0b96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "Rural and Northern Immigration": "https://images.unsplash.com/photo-1556811431-943fd5a324bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "Start-up Visa Program": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                              // Better fallback images based on pathway type
+                              const fallbacks: Record<string, string> = {
+                                "expressEntry": "https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "pnp": "https://images.unsplash.com/photo-1525966222405-4a7dfe90208b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "family": "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                               };
-                              target.src = fallbacks[program.title] || "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
-                              console.log(`${program.title} image error, using fallback`);
+
+                              target.src = fallbacks[pathway] || "https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
                             }}
                           />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <div className="text-center px-6">
-                              <div className="mb-4 bg-white/20 p-4 inline-block rounded-full backdrop-blur-sm">
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex flex-col justify-end p-6 transition-opacity duration-300 hover:opacity-90">
+                            <div className="mb-4">
+                              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${pathway === 'pnp' ? 'bg-[#E31937]' : 'bg-[#2563EB]'} mb-3`}>
                                 <div className="text-white">
                                   {program.icon}
                                 </div>
@@ -370,7 +362,7 @@ export default function PRPathways() {
                                 <p className="text-sm font-medium text-gray-500">Processing Time</p>
                                 <p className="text-lg font-semibold text-gray-800">{program.processingTime}</p>
                               </div>
-                              <button 
+                              <button
                                 onClick={scrollToAssessment}
                                 className={`${pathway === 'pnp' ? 'bg-[#E31937] hover:bg-red-700' : 'bg-[#2563EB] hover:bg-blue-700'} text-white py-2 px-6 rounded-lg font-medium text-sm transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1`}
                               >
