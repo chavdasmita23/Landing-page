@@ -75,14 +75,25 @@ export default function WhyCanada() {
             <p className="text-gray-600 text-lg leading-relaxed max-w-2xl">
               Canada consistently ranks as one of the best countries for immigrants, offering exceptional opportunities with its welcoming multicultural society, strong economy, and high quality of life.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="bg-blue-50 text-[#2563EB] px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                <CheckCircle className="h-4 w-4 mr-1" /> Welcoming Society
+              </span>
+              <span className="bg-red-50 text-[#E31937] px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                <CheckCircle className="h-4 w-4 mr-1" /> Strong Economy
+              </span>
+              <span className="bg-blue-50 text-[#2563EB] px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                <CheckCircle className="h-4 w-4 mr-1" /> Quality Healthcare
+              </span>
+            </div>
           </div>
           <div className="md:w-1/2 relative">
             <img 
               src="/images/canada-landscape.jpg" 
               alt="Canadian landscape" 
-              className="rounded-lg shadow-xl object-cover h-80 w-full"
+              className="rounded-xl shadow-xl object-cover h-80 w-full"
             />
-            <div className="absolute -bottom-6 -left-6 bg-[#2563EB] text-white p-6 rounded-lg shadow-lg max-w-xs hidden md:block">
+            <div className="absolute -bottom-6 -left-6 bg-[#2563EB] text-white p-6 rounded-lg shadow-lg max-w-xs hidden md:block backdrop-blur-sm bg-opacity-90">
               <p className="font-semibold">Canada welcomes over 400,000 new permanent residents annually</p>
             </div>
           </div>
@@ -92,18 +103,21 @@ export default function WhyCanada() {
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className={`bg-white hover:shadow-xl transition-all duration-300 transform ${activeIndex === index ? 'scale-105 ring-2 ring-[#2563EB]' : 'hover:-translate-y-2'} cursor-pointer overflow-hidden border-0 shadow-lg`}
+              className={`bg-white hover:shadow-xl transition-all duration-300 transform ${activeIndex === index ? 'scale-105 ring-2 ring-[#2563EB]' : 'hover:-translate-y-2'} cursor-pointer overflow-hidden border-0 shadow-lg rounded-xl`}
               onClick={() => setActiveIndex(index)}
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative group">
                 <img 
                   src={benefit.image} 
                   alt={benefit.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <h3 className="text-xl font-bold text-white mb-0">{benefit.title}</h3>
+                </div>
               </div>
               <CardContent className="p-6">
-                <div className={`text-[#2563EB] p-3 rounded-full inline-block mb-4 ${activeIndex === index ? 'bg-blue-100' : 'bg-blue-50'}`}>
+                <div className={`text-[#2563EB] p-3 rounded-full inline-block mb-4 transition-all duration-300 ${activeIndex === index ? 'bg-blue-100 scale-110' : 'bg-blue-50'}`}>
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">{benefit.title}</h3>
@@ -131,8 +145,8 @@ export default function WhyCanada() {
               <p className="text-gray-600">Canada ranks #1 in quality of life globally</p>
             </div>
             <div className="flex justify-center">
-              <div className="flex items-center p-4 bg-white rounded-lg shadow-md">
-                <div className="h-16 w-16 flex items-center justify-center rounded-full bg-red-100">
+              <div className="flex items-center p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                <div className="h-16 w-16 flex items-center justify-center rounded-full bg-gradient-to-r from-red-100 to-red-200">
                   <img src="/images/canada-flag.svg" alt="Canadian flag" className="h-8" />
                 </div>
                 <div className="ml-4">

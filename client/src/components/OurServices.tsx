@@ -6,8 +6,6 @@ import {
   ClipboardCheck,
   ListChecks,
   Headphones,
-  Users,
-  Shield,
   Award,
   ArrowRight,
   CheckCircle
@@ -69,26 +67,7 @@ const services = [
   }
 ];
 
-const stats = [
-  {
-    icon: <Users className="h-6 w-6 text-white" />,
-    title: "Satisfied Clients",
-    value: "15,000+",
-    description: "Successful PR applications"
-  },
-  {
-    icon: <Shield className="h-6 w-6 text-white" />,
-    title: "Success Rate",
-    value: "97%",
-    description: "First-time approvals"
-  },
-  {
-    icon: <Award className="h-6 w-6 text-white" />,
-    title: "Experience",
-    value: "12+ Years",
-    description: "Of immigration expertise"
-  }
-];
+// Removed statistics section as requested
 
 export default function OurServices() {
   const [activeService, setActiveService] = useState<number | null>(null);
@@ -114,23 +93,19 @@ export default function OurServices() {
           </p>
         </div>
         
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
-          {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className={`bg-gradient-to-r ${index % 2 === 0 ? 'from-[#2563EB] to-[#2563EB]/80' : 'from-[#E31937] to-[#E31937]/80'} text-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform duration-300`}
-            >
-              <div className="flex items-center mb-4">
-                <div className="p-3 bg-white/10 rounded-full mr-4">
-                  {stat.icon}
-                </div>
-                <h3 className="text-xl font-bold">{stat.title}</h3>
-              </div>
-              <div className="text-3xl font-bold mb-2">{stat.value}</div>
-              <p className="text-white/80">{stat.description}</p>
+        {/* Additional service description */}
+        <div className="bg-gradient-to-r from-blue-50 to-red-50 rounded-xl p-6 mb-16 max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="p-4 bg-white rounded-full mb-6 md:mb-0 md:mr-6 shadow-md">
+              <Award className="h-12 w-12 text-[#E31937]" />
             </div>
-          ))}
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2 text-center md:text-left">Dedicated Immigration Professionals</h3>
+              <p className="text-gray-600 text-center md:text-left">
+                Our team consists of experienced immigration experts who are committed to your success. We provide personalized guidance through every step of your Canadian PR journey, using our expertise to handle complex processes with precision and care.
+              </p>
+            </div>
+          </div>
         </div>
         
         {/* Services Grid */}

@@ -11,7 +11,8 @@ import {
   ChevronDown,
   Users,
   Clock,
-  Award
+  Award,
+  ArrowRight
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -23,42 +24,72 @@ const services = [
     question: "Confused About Express Entry Eligibility?",
     title: "Express Entry Eligibility",
     description: "Our Express Entry specialists analyze your profile comprehensively to identify the ideal immigration program match, maximizing your CRS score and ensuring successful entry into the pool.",
-    stats: { success: "98%", clients: "5,000+", timeSaved: "3-6 months" }
+    features: [
+      "Comprehensive program matching across all Express Entry streams",
+      "Detailed eligibility assessment for each immigration pathway",
+      "Strategic recommendations based on your unique profile",
+      "Clear explanation of requirements and next steps"
+    ]
   },
   {
     icon: <Calculator className="h-6 w-6" />,
     question: "Struggling with CRS Points Calculation?",
     title: "CRS Points Optimization",
     description: "Our point-optimization experts conduct thorough assessments to identify every legitimate point-scoring opportunity in your profile, frequently finding 10-20 additional points others miss.",
-    stats: { success: "91%", clients: "4,200+", timeSaved: "2-4 months" }
+    features: [
+      "Detailed CRS score breakdown and analysis",
+      "Identification of point-improvement opportunities",
+      "Strategic guidance for language testing optimization",
+      "Education credential assessment strategies"
+    ]
   },
   {
     icon: <FileText className="h-6 w-6" />,
     question: "Overwhelmed by Documentation Requirements?",
     title: "Document Verification",
     description: "Our document specialists meticulously verify every document against IRCC requirements, ensuring your evidence meets the exact standards that prevent costly rejections.",
-    stats: { success: "97%", clients: "6,500+", timeSaved: "1-3 months" }
+    features: [
+      "Comprehensive document checklist customized to your case",
+      "Format and content verification for all submissions",
+      "Translation and certification guidance",
+      "Document submission strategies and organization"
+    ]
   },
   {
     icon: <Hourglass className="h-6 w-6" />,
     question: "Frustrated by Lengthy Processing Delays?",
     title: "Processing Time Optimization",
     description: "Our streamlined process and strategic application timing reduce processing delays by 25% compared to self-managed applications, with proactive follow-ups to keep your case moving.",
-    stats: { success: "88%", clients: "3,800+", timeSaved: "4-8 months" }
+    features: [
+      "Strategic application timing recommendations",
+      "Regular status check updates and monitoring",
+      "Proactive communication with immigration authorities",
+      "Expedited processing strategies when available"
+    ]
   },
   {
     icon: <Map className="h-6 w-6" />,
     question: "Uncertain About Provincial Nomination Options?",
     title: "Provincial Nomination Expertise",
     description: "Our PNP specialists stay current with the frequently changing eligibility criteria across all Canadian provinces and territories, directing you only to programs where you'll qualify.",
-    stats: { success: "95%", clients: "2,900+", timeSaved: "3-5 months" }
+    features: [
+      "Comprehensive PNP program matching across all provinces",
+      "Occupation-specific stream identification",
+      "Connection to province evaluation and strategies",
+      "Provincial labor market needs analysis"
+    ]
   },
   {
     icon: <RotateCcw className="h-6 w-6" />,
     question: "Recovering from a Previous Rejection?",
     title: "Rejection Recovery",
-    description: "Our rejection-recovery team specializes in analyzing previous refusals, addressing the specific issues, and creating compelling new applications with 94% success rate for previously refused clients.",
-    stats: { success: "94%", clients: "1,800+", timeSaved: "6-12 months" }
+    description: "Our rejection-recovery team specializes in analyzing previous refusals, addressing the specific issues, and creating compelling new applications with high success rates for previously refused clients.",
+    features: [
+      "Detailed rejection analysis and root cause identification",
+      "Customized reapplication strategy development",
+      "Addressing deficiencies in previous applications",
+      "Strengthening evidence and documentation"
+    ]
   }
 ];
 
@@ -163,29 +194,29 @@ export default function WhyChooseUs() {
                     <div className="p-6 pt-0 border-t border-gray-100">
                       <p className="text-gray-600 mb-6">{service.description}</p>
                       
-                      <div className="grid grid-cols-3 gap-4 mb-6">
-                        <div className="bg-gray-50 p-4 rounded-lg text-center">
-                          <Award className="h-5 w-5 text-[#E31937] mx-auto mb-2" />
-                          <span className="block text-lg font-bold text-gray-800">{service.stats.success}</span>
-                          <span className="text-sm text-gray-500">Success Rate</span>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded-lg text-center">
-                          <Users className="h-5 w-5 text-[#E31937] mx-auto mb-2" />
-                          <span className="block text-lg font-bold text-gray-800">{service.stats.clients}</span>
-                          <span className="text-sm text-gray-500">Clients Helped</span>
-                        </div>
-                        <div className="bg-gray-50 p-4 rounded-lg text-center">
-                          <Clock className="h-5 w-5 text-[#E31937] mx-auto mb-2" />
-                          <span className="block text-lg font-bold text-gray-800">{service.stats.timeSaved}</span>
-                          <span className="text-sm text-gray-500">Time Saved</span>
+                      <div className="mb-6">
+                        <div className="bg-[#2563EB]/5 p-4 rounded-lg">
+                          <h4 className="text-[#2563EB] font-medium mb-3">What we provide:</h4>
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+                            {service.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start">
+                                <CheckCircle className="h-4 w-4 text-[#2563EB] mt-1 mr-2 flex-shrink-0" />
+                                <span className="text-gray-700 text-sm">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                       
                       <Button 
                         onClick={scrollToAssessment}
-                        className="w-full bg-[#2563EB] hover:bg-blue-700 text-white"
+                        className="w-full bg-[#2563EB] hover:bg-blue-700 text-white group transition-all duration-300"
                       >
                         Check Your Eligibility Now
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300">
+                          <path d="M5 12h14"></path>
+                          <path d="m12 5 7 7-7 7"></path>
+                        </svg>
                       </Button>
                     </div>
                   </div>
