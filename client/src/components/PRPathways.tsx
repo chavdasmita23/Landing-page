@@ -277,7 +277,7 @@ export default function PRPathways() {
                           <img 
                             src={program.image} 
                             alt={program.title} 
-                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                            className="w-full h-full object-cover"
                             loading="lazy"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
