@@ -13,7 +13,7 @@ const benefits = [
     icon: <GraduationCap className="h-8 w-8" />,
     title: "World-Class Education",
     description: "Access to globally recognized universities and education institutions for you and your family.",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80",
+    image: "/images/canada-education.jpg",
     details: [
       "Canadian universities consistently rank in the global top 100",
       "Affordable tuition compared to the US and UK",
@@ -25,7 +25,7 @@ const benefits = [
     icon: <Heart className="h-8 w-8" />,
     title: "Healthcare System",
     description: "Benefit from Canada's comprehensive universal healthcare system providing quality medical services.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80",
+    image: "/images/canada-healthcare.jpg",
     details: [
       "Universal healthcare coverage for permanent residents",
       "Low-cost prescription medication programs",
@@ -37,7 +37,7 @@ const benefits = [
     icon: <TrendingUp className="h-8 w-8" />,
     title: "Strong Economy",
     description: "Enjoy opportunities in a resilient economy with diverse industries and high living standards.",
-    image: "https://images.unsplash.com/photo-1553875039-011cd517d6a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80",
+    image: "/images/canada-economy.jpg",
     details: [
       "Multiple thriving sectors including tech and finance",
       "Stable banking and economic systems",
@@ -49,7 +49,7 @@ const benefits = [
     icon: <Home className="h-8 w-8" />,
     title: "Quality Lifestyle",
     description: "Experience the perfect balance of work and leisure in Canada's safe, multicultural environment.",
-    image: "https://images.unsplash.com/photo-1533490562524-19c991ad7d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80",
+    image: "/images/canada-lifestyle.jpg",
     details: [
       "Consistently ranked among top 5 countries for quality of life",
       "Abundant natural beauty and outdoor recreation",
@@ -78,7 +78,7 @@ export default function WhyCanada() {
           </div>
           <div className="md:w-1/2 relative">
             <img 
-              src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              src="/images/canada-landscape.jpg" 
               alt="Canadian landscape" 
               className="rounded-lg shadow-xl object-cover h-80 w-full"
             />
@@ -133,7 +133,7 @@ export default function WhyCanada() {
             <div className="flex justify-center">
               <div className="flex items-center p-4 bg-white rounded-lg shadow-md">
                 <div className="h-16 w-16 flex items-center justify-center rounded-full bg-red-100">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" alt="Canadian flag" className="h-8" />
+                  <img src="/images/canada-flag.svg" alt="Canadian flag" className="h-8" />
                 </div>
                 <div className="ml-4">
                   <span className="block text-2xl font-bold text-gray-800">89.5/100</span>
