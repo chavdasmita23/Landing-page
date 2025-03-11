@@ -114,7 +114,16 @@ export default function WhyCanada() {
                   loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+                    // Use different fallback images based on the benefit title for more variety
+                    const fallbacks = {
+                      "Quality of Life": "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                      "Universal Healthcare": "https://images.unsplash.com/photo-1631815588090-d1bcbe9a88b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                      "Cultural Diversity": "https://images.unsplash.com/photo-1541535881962-3bb380b08458?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                      "Economic Stability": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                      "World-Class Education": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                      "Natural Beauty": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    };
+                    target.src = fallbacks[benefit.title] || "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
                     console.log("Image error, using fallback for", benefit.title);
                   }}
                 />
