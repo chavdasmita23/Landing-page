@@ -114,11 +114,13 @@ export default function AssessmentForm() {
     }, 1500);
   };
 
-  // Check if form is valid
-  const isFormValid = () => {
-    return form.getFieldState('fullName').invalid === false &&
-      form.getFieldState('email').invalid === false &&
-      form.getFieldState('phone').invalid === false;
+  // Validate basic form fields
+  const validateBasicInfo = () => {
+    return !!(
+      form.getValues('fullName') &&
+      form.getValues('email') &&
+      form.getValues('phone')
+    );
   };
 
   return (
