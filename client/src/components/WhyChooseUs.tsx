@@ -1,10 +1,10 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { 
-  CheckCircle, 
-  Calculator, 
-  FileText, 
-  Hourglass, 
-  Map, 
+import {
+  CheckCircle,
+  Calculator,
+  FileText,
+  Hourglass,
+  Map,
   RotateCcw,
   HelpCircle,
   ChevronUp,
@@ -16,7 +16,7 @@ import {
   Heart,
   TrendingUp,
   Smile,
-  GraduationCap
+  GraduationCap,
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -32,8 +32,8 @@ const services = [
       "Comprehensive program matching across all Express Entry streams",
       "Detailed eligibility assessment for each immigration pathway",
       "Strategic recommendations based on your unique profile",
-      "Clear explanation of requirements and next steps"
-    ]
+      "Clear explanation of requirements and next steps",
+    ],
   },
   {
     icon: <Calculator className="h-6 w-6" />,
@@ -44,8 +44,8 @@ const services = [
       "Detailed CRS score breakdown and analysis",
       "Identification of point-improvement opportunities",
       "Strategic guidance for language testing optimization",
-      "Education credential assessment strategies"
-    ]
+      "Education credential assessment strategies",
+    ],
   },
   {
     icon: <FileText className="h-6 w-6" />,
@@ -56,8 +56,8 @@ const services = [
       "Comprehensive document checklist customized to your case",
       "Format and content verification for all submissions",
       "Translation and certification guidance",
-      "Document submission strategies and organization"
-    ]
+      "Document submission strategies and organization",
+    ],
   },
   {
     icon: <Hourglass className="h-6 w-6" />,
@@ -68,8 +68,8 @@ const services = [
       "Strategic application timing recommendations",
       "Regular status check updates and monitoring",
       "Proactive communication with immigration authorities",
-      "Expedited processing strategies when available"
-    ]
+      "Expedited processing strategies when available",
+    ],
   },
   {
     icon: <Map className="h-6 w-6" />,
@@ -80,8 +80,8 @@ const services = [
       "Comprehensive PNP program matching across all provinces",
       "Occupation-specific stream identification",
       "Connection to province evaluation and strategies",
-      "Provincial labor market needs analysis"
-    ]
+      "Provincial labor market needs analysis",
+    ],
   },
   {
     icon: <RotateCcw className="h-6 w-6" />,
@@ -92,11 +92,10 @@ const services = [
       "Detailed rejection analysis and root cause identification",
       "Customized reapplication strategy development",
       "Addressing deficiencies in previous applications",
-      "Strengthening evidence and documentation"
-    ]
-  }
+      "Strengthening evidence and documentation",
+    ],
+  },
 ];
-
 
 const reasons = [
   {
@@ -108,8 +107,8 @@ const reasons = [
       "Universal healthcare coverage for permanent residents",
       "World-class medical facilities and professionals",
       "Comprehensive coverage for essential medical services",
-      "Focus on preventive care and wellness"
-    ]
+      "Focus on preventive care and wellness",
+    ],
   },
   {
     title: "Strong Economy",
@@ -120,8 +119,8 @@ const reasons = [
       "Multiple thriving sectors including tech and finance",
       "Stable banking and economic systems",
       "Strong employment protections",
-      "Competitive salaries and benefits"
-    ]
+      "Competitive salaries and benefits",
+    ],
   },
   {
     title: "Quality Lifestyle",
@@ -132,8 +131,8 @@ const reasons = [
       "Consistently ranked among top countries for quality of life",
       "Safe communities and low crime rates",
       "Clean environment with abundant natural spaces",
-      "Diverse, inclusive, and multicultural society"
-    ]
+      "Diverse, inclusive, and multicultural society",
+    ],
   },
   {
     title: "World-Class Education",
@@ -144,9 +143,9 @@ const reasons = [
       "Internationally recognized education system",
       "Affordable higher education compared to other countries",
       "Quality public education from kindergarten to high school",
-      "Numerous scholarship opportunities"
-    ]
-  }
+      "Numerous scholarship opportunities",
+    ],
+  },
 ];
 
 const testimonials = [
@@ -155,22 +154,22 @@ const testimonials = [
     country: "India",
     text: "Vvelox helped me optimize my CRS score by 22 points, which made all the difference in receiving my ITA. Their experts guided me through every step of the process.",
     rating: 5,
-    service: "Express Entry"
+    service: "Express Entry",
   },
   {
     name: "Ahmad Khalid",
     country: "Pakistan",
     text: "After a previous rejection, I was hesitant to try again. Vvelox's rejection recovery team identified exactly where my application went wrong and helped me secure provincial nomination.",
     rating: 5,
-    service: "PNP Application"
+    service: "PNP Application",
   },
   {
     name: "Li Wei",
     country: "China",
     text: "The document verification service saved me from potential rejection. Their attention to detail caught several issues that I would have missed on my own.",
     rating: 5,
-    service: "Document Verification"
-  }
+    service: "Document Verification",
+  },
 ];
 
 export default function WhyChooseUs() {
@@ -218,20 +217,22 @@ export default function WhyChooseUs() {
           <TabsContent value="expertise" className="animate-in fade-in-50 duration-500">
             <div className="grid grid-cols-1 gap-4 md:gap-6 max-w-4xl mx-auto">
               {services.map((service, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 ${
-                    activeAccordion === index ? 'shadow-xl ring-1 ring-[#2563EB]/20' : 'hover:shadow-lg'
+                    activeAccordion === index ? "shadow-xl ring-1 ring-[#2563EB]/20" : "hover:shadow-lg"
                   }`}
                 >
-                  <div 
-                    className="p-6 cursor-pointer flex justify-between items-center" 
+                  <div
+                    className="p-6 cursor-pointer flex justify-between items-center"
                     onClick={() => toggleAccordion(index)}
                   >
                     <div className="flex items-center">
-                      <div className={`p-3 rounded-full mr-4 ${
-                        activeAccordion === index ? 'bg-[#2563EB] text-white' : 'bg-[#2563EB]/10 text-[#2563EB]'
-                      }`}>
+                      <div
+                        className={`p-3 rounded-full mr-4 ${
+                          activeAccordion === index ? "bg-[#2563EB] text-white" : "bg-[#2563EB]/10 text-[#2563EB]"
+                        }`}
+                      >
                         {service.icon}
                       </div>
                       <h3 className="text-xl font-bold text-gray-800">{service.question}</h3>
@@ -245,9 +246,9 @@ export default function WhyChooseUs() {
                     </div>
                   </div>
 
-                  <div 
+                  <div
                     className={`transition-all duration-500 overflow-hidden ${
-                      activeAccordion === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                      activeAccordion === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
                     <div className="p-6 pt-0 border-t border-gray-100">
@@ -267,12 +268,23 @@ export default function WhyChooseUs() {
                         </div>
                       </div>
 
-                      <Button 
+                      <Button
                         onClick={scrollToAssessment}
                         className="w-full bg-[#2563EB] hover:bg-blue-700 text-white group transition-all duration-300"
                       >
                         Check Your Eligibility Now
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300"
+                        >
                           <path d="M5 12h14"></path>
                           <path d="m12 5 7 7-7 7"></path>
                         </svg>
@@ -293,7 +305,7 @@ export default function WhyChooseUs() {
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               Our team of immigration specialists is ready to guide you through every step of the process, ensuring your best chance at success.
             </p>
-            <Button 
+            <Button
               onClick={scrollToAssessment}
               className="bg-[#E31937] hover:bg-red-700 text-white px-8 py-6 text-lg font-bold shadow-lg transition-transform duration-300 transform hover:scale-105"
               size="lg"
@@ -302,75 +314,50 @@ export default function WhyChooseUs() {
             </Button>
           </div>
         </div>
-        <section id="why-canada" className="py-16 md:py-24 bg-gray-50 mt-12">
+
+        {/* Why Choose Vvelox Global Section */}
+        <section id="why-vvelox" className="py-16 md:py-24 bg-gray-50 mt-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Why Choose Canada?
+                Why Choose Vvelox Global?
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Canada consistently ranks among the world's best countries to live and work in, offering numerous advantages for immigrants.
-              </p>
+              <div className="w-20 h-1 bg-[#E31937] mx-auto mb-6"></div>
+            </div>
 
-              {/* Canadian Landscape Image */}
-              <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-2xl max-w-5xl mx-auto mb-16">
-                <img 
-                  src={canadianLandscapeImage}
-                  alt="Beautiful Canadian Landscape"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                  <div className="p-8 text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                      Discover Canada's Natural Beauty
-                    </h3>
-                    <p className="text-white/90 max-w-2xl">
-                      From breathtaking mountains to pristine lakes and vibrant cities, Canada offers stunning landscapes and an exceptional quality of life.
-                    </p>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-6">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-100 rounded-full text-blue-600">
+                      <Award className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-center text-gray-800 mb-3">Immigration Expertise</h3>
+                    <p className="text-gray-600 text-center">Our team of certified immigration consultants brings decades of experience to your application process.</p>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-6">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-green-100 rounded-full text-green-600">
+                      <CheckCircle className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-center text-gray-800 mb-3">97% Success Rate</h3>
+                    <p className="text-gray-600 text-center">Our exceptional first-time approval rate demonstrates our commitment to quality and attention to detail.</p>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-6">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-red-100 rounded-full text-red-600">
+                      {/* Placeholder - Replace with actual icon */}
+                      <CheckCircle className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-center text-gray-800 mb-3">Personalized Service</h3>
+                    <p className="text-gray-600 text-center">We provide tailored immigration strategies based on your unique qualifications and circumstances.</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {reasons.map((reason, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow"
-                >
-                  <div className="h-48 relative">
-                    <img 
-                      src={reason.image} 
-                      alt={reason.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                      <div className="p-6">
-                        <div className="flex items-center mb-2">
-                          <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg text-white mr-3">
-                            {reason.icon}
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white">
-                            {reason.title}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-700 mb-6">
-                      {reason.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {reason.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
