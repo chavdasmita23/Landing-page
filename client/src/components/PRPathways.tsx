@@ -26,6 +26,7 @@ const pathwayData = {
         ],
         color: "blue",
         image: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        isPopular: true,
       },
       {
         title: "Federal Skilled Trades Program",
@@ -41,6 +42,7 @@ const pathwayData = {
         ],
         color: "blue",
         image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        isPopular: false,
       },
       {
         title: "Canadian Experience Class",
@@ -56,6 +58,7 @@ const pathwayData = {
         ],
         color: "blue",
         image: "https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        isPopular: false,
       }
     ]
   },
@@ -90,7 +93,8 @@ const pathwayData = {
           "Newfoundland and Labrador - Newfoundland and Labrador Provincial Nominee Program",
           "Yukon - Yukon Nominee Program",
           "Northwest Territories - Northwest Territories Nominee Program"
-        ]
+        ],
+        isPopular: false,
       }
     ]
   },
@@ -118,7 +122,8 @@ const pathwayData = {
           "Parents and grandparents",
           "Orphaned siblings, nephews, nieces, or grandchildren (under 18)",
           "Children to be adopted"
-        ]
+        ],
+        isPopular: false,
       }
     ]
   }
@@ -301,7 +306,12 @@ export default function PRPathways() {
                                   {program.icon}
                                 </div>
                               </div>
-                              <h4 className="text-2xl font-bold text-white mb-2">{program.title}</h4>
+                              <div className="flex items-center mb-1">
+                                {program.isPopular && (
+                                  <span className="inline-block bg-[#2563EB]/10 text-[#2563EB] text-xs font-semibold px-3 py-1 rounded-full mr-3">MOST POPULAR</span>
+                                )}
+                                <h4 className="text-2xl font-bold text-white">{program.title}</h4>
+                              </div>
                               <p className="text-white/90">{program.subtitle}</p>
                               {program.tag && (
                                 <Badge className={`mt-3 ${pathway === 'pnp' ? 'bg-[#E31937]' : 'bg-[#2563EB]'}`}>

@@ -65,7 +65,7 @@ export default function AssessmentForm() {
       const nameParts = values.fullName.trim().split(' ');
       const firstName = nameParts[0];
       const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
-      
+
       const dataToSubmit = {
         ...values,
         firstName,
@@ -99,12 +99,12 @@ export default function AssessmentForm() {
   // Simulate payment processing
   const handlePayment = () => {
     if (!submittedAssessmentId) return;
-    
+
     toast({
       title: "Redirecting to payment",
       description: "You will now be redirected to our secure payment gateway.",
     });
-    
+
     // In a real application, this would redirect to Razorpay or any other payment gateway
     setTimeout(() => {
       toast({
@@ -130,7 +130,7 @@ export default function AssessmentForm() {
         <div className="absolute top-0 left-0 w-full h-64 bg-[#2563EB] rotate-12 transform translate-x-1/4 translate-y-1/4"></div>
         <div className="absolute top-0 left-0 w-full h-64 bg-[#E31937] -rotate-12 transform -translate-x-1/4 translate-y-1/2"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="inline-block text-[#E31937] font-semibold text-sm tracking-wider uppercase mb-2">FREE ASSESSMENT</span>
@@ -142,7 +142,7 @@ export default function AssessmentForm() {
             Complete this form to receive a comprehensive assessment of your Canadian immigration eligibility options. Our experts will analyze your profile and provide a detailed report.
           </p>
         </div>
-        
+
         {submittedAssessmentId ? (
           <Card className="max-w-2xl mx-auto bg-white shadow-lg border-0">
             <CardHeader className="bg-[#E31937] text-white text-center py-8">
@@ -179,7 +179,7 @@ export default function AssessmentForm() {
                   </li>
                 </ol>
               </div>
-              
+
               <div className="text-center">
                 <p className="text-gray-600 mb-6">
                   Thank you for your interest in Canadian immigration. To proceed with your comprehensive assessment, please complete the payment process.
@@ -217,7 +217,7 @@ export default function AssessmentForm() {
                     The detailed assessment form will be sent to you via email after payment. Our experts will provide a comprehensive report on your PR eligibility within 3 working days.
                   </AlertDescription>
                 </Alert>
-                
+
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     {/* Personal Information */}
@@ -228,7 +228,7 @@ export default function AssessmentForm() {
                         </div>
                         <h3 className="text-lg font-bold text-gray-800">Personal Information</h3>
                       </div>
-                      
+
                       <div className="space-y-4">
                         <FormField
                           control={form.control}
@@ -279,7 +279,7 @@ export default function AssessmentForm() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Basic Eligibility */}
                     <div>
                       <div className="flex items-center mb-4">
@@ -288,7 +288,7 @@ export default function AssessmentForm() {
                         </div>
                         <h3 className="text-lg font-bold text-gray-800">Basic Eligibility</h3>
                       </div>
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <FormField
                           control={form.control}
@@ -373,7 +373,7 @@ export default function AssessmentForm() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="border-t border-gray-200 pt-6">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-start">
