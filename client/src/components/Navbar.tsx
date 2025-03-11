@@ -30,9 +30,12 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold">
-              <span className="text-[#E31937]">Vvelox</span>{" "}
-              <span className="text-[#2563EB]">Global</span>
+            <Link href="/" className="flex items-center">
+              <img 
+                src="attached_assets/Vvelox-Web-Logo-01.png" 
+                alt="Velox Global Business Advisory" 
+                className="h-10 md:h-12"
+              />
             </Link>
           </div>
           
