@@ -252,20 +252,7 @@ export default function ProcessTimeline() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-24 max-w-4xl mx-auto text-center bg-gradient-to-r from-blue-50 to-indigo-50 p-10 rounded-2xl shadow-xl border border-blue-100">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Ready to Begin Your Canadian Journey?</h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Take the first step today with our expert guidance. We'll help you navigate each step of the process with confidence.
-          </p>
-          <Button 
-            onClick={scrollToAssessment}
-            className="bg-[#2563EB] hover:bg-blue-700 text-white px-8 py-6 text-lg font-bold shadow-lg rounded-xl"
-            size="lg"
-          >
-            Get Your Eligibility Assessment
-          </Button>
-        </div>
+        {/* Removed CTA section */}
       </div>
 
       <style>{`

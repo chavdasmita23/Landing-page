@@ -278,6 +278,12 @@ export default function PRPathways() {
                             src={program.image} 
                             alt={program.title} 
                             className="w-full h-full object-cover"
+                            loading="lazy"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = "https://via.placeholder.com/500"; // Fallback image
+                              console.log(`${program.title} image error, using fallback`);
+                            }}
                           />
                           <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                             <div className="text-center px-6">
