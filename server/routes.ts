@@ -8,6 +8,19 @@ import { fromZodError } from "zod-validation-error";
 export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/assessments", async (req, res) => {
     try {
+      // Handle fullName field if it exists
+      if (req.body.fullName) {
+        // Split the full name into first and last name
+        const nameParts = req.body.fullName.trim().split(' ');
+        const firstName = nameParts[0];
+        const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
+        
+        // Update the request body
+        req.body.firstName = firstName;
+        req.body.lastName = lastName;
+        delete req.body.fullName;
+      }
+      
       const validatedData = insertAssessmentSchema.parse(req.body);
       
       // Check if this email already exists

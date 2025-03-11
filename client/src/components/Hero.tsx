@@ -109,7 +109,7 @@ export default function Hero() {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         .shadow-text {
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }

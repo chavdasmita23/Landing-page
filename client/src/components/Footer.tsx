@@ -123,20 +123,14 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Vvelox Global Business Advisory. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="#">
-              <a className="text-gray-400 hover:text-white text-sm transition duration-150">
-                Privacy Policy
-              </a>
+            <Link href="#" className="text-gray-400 hover:text-white text-sm transition duration-150">
+              Privacy Policy
             </Link>
-            <Link href="#">
-              <a className="text-gray-400 hover:text-white text-sm transition duration-150">
-                Terms of Service
-              </a>
+            <Link href="#" className="text-gray-400 hover:text-white text-sm transition duration-150">
+              Terms of Service
             </Link>
-            <Link href="#">
-              <a className="text-gray-400 hover:text-white text-sm transition duration-150">
-                Disclaimer
-              </a>
+            <Link href="#" className="text-gray-400 hover:text-white text-sm transition duration-150">
+              Disclaimer
             </Link>
           </div>
         </div>
