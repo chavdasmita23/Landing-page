@@ -61,7 +61,7 @@ const benefits = [
 
 export default function WhyCanada() {
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   return (
     <section id="why-canada" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,15 +98,15 @@ export default function WhyCanada() {
             </div>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className={`bg-white hover:shadow-xl transition-all duration-300 transform ${activeIndex === index ? 'scale-105 ring-2 ring-[#2563EB]' : 'hover:-translate-y-2'} cursor-pointer overflow-hidden border-0 shadow-lg rounded-xl`}
+              className={`bg-white hover:shadow-xl transition-all duration-300 transform ${activeIndex === index ? 'scale-105 ring-2 ring-[#2563EB]' : 'hover:-translate-y-2'} cursor-pointer overflow-hidden border-0 shadow-lg rounded-xl group`}
               onClick={() => setActiveIndex(index)}
             >
-              <div className="h-48 overflow-hidden relative group">
+              <div className="h-48 overflow-hidden relative">
                 <img 
                   src={benefit.image} 
                   alt={benefit.title} 
@@ -122,7 +122,7 @@ export default function WhyCanada() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 mb-4">{benefit.description}</p>
-                
+
                 <div className={`overflow-hidden transition-all duration-500 ${activeIndex === index ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <ul className="space-y-2 mt-4 pt-4 border-t border-gray-100">
                     {benefit.details.map((detail, i) => (
@@ -137,7 +137,7 @@ export default function WhyCanada() {
             </Card>
           ))}
         </div>
-        
+
         <div className="bg-gradient-to-r from-[#2563EB]/10 to-[#E31937]/5 p-8 rounded-xl shadow-inner">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="text-center md:text-left">

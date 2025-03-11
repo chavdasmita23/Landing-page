@@ -198,7 +198,7 @@ export default function WhyChooseUs() {
         <div className="text-center mb-16">
           <span className="inline-block text-[#E31937] font-semibold text-sm tracking-wider uppercase mb-2">OUR EXPERTISE</span>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6">
-            Why Choose Vvelox Global?
+            Our Immigration Expertise
           </h2>
           <div className="w-20 h-1 bg-[#E31937] mx-auto mb-6"></div>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -314,53 +314,6 @@ export default function WhyChooseUs() {
             </Button>
           </div>
         </div>
-
-        {/* Why Choose Vvelox Global Section */}
-        <section id="why-vvelox" className="py-16 md:py-24 bg-gray-50 mt-12">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Why Choose Vvelox Global?
-              </h2>
-              <div className="w-20 h-1 bg-[#E31937] mx-auto mb-6"></div>
-            </div>
-
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="p-6">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-100 rounded-full text-blue-600">
-                      <Award className="h-8 w-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-center text-gray-800 mb-3">Immigration Expertise</h3>
-                    <p className="text-gray-600 text-center">Our team of certified immigration consultants brings decades of experience to your application process.</p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="p-6">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-green-100 rounded-full text-green-600">
-                      <CheckCircle className="h-8 w-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-center text-gray-800 mb-3">97% Success Rate</h3>
-                    <p className="text-gray-600 text-center">Our exceptional first-time approval rate demonstrates our commitment to quality and attention to detail.</p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="p-6">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-red-100 rounded-full text-red-600">
-                      {/* Placeholder - Replace with actual icon */}
-                      <CheckCircle className="h-8 w-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-center text-gray-800 mb-3">Personalized Service</h3>
-                    <p className="text-gray-600 text-center">We provide tailored immigration strategies based on your unique qualifications and circumstances.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </section>
   );
