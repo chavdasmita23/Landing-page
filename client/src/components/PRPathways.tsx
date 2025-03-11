@@ -364,17 +364,19 @@ export default function PRPathways() {
                             </div>
                           )}
 
-                          <div className="flex items-center justify-between mb-6">
-                            <div>
-                              <span className="block text-sm text-gray-500">Processing Time</span>
-                              <span className="text-lg font-bold text-gray-800">{program.processingTime}</span>
+                          <div className="border-t border-gray-100 p-6">
+                            <div className="flex justify-between items-center">
+                              <div>
+                                <p className="text-sm font-medium text-gray-500">Processing Time</p>
+                                <p className="text-lg font-semibold text-gray-800">{program.processingTime}</p>
+                              </div>
+                              <button 
+                                onClick={scrollToAssessment}
+                                className={`${pathway === 'pnp' ? 'bg-[#E31937] hover:bg-red-700' : 'bg-[#2563EB] hover:bg-blue-700'} text-white py-2 px-6 rounded-lg font-medium text-sm transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1`}
+                              >
+                                Check Eligibility
+                              </button>
                             </div>
-                            <Button
-                              onClick={scrollToAssessment}
-                              className={`${pathway === 'pnp' ? 'bg-[#E31937] hover:bg-red-700' : 'bg-[#2563EB] hover:bg-blue-700'} text-white px-6`}
-                            >
-                              Check Eligibility
-                            </Button>
                           </div>
                         </div>
                       </div>
