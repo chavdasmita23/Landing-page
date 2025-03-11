@@ -32,7 +32,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img 
-                src="/attached_assets/Vvelox Web Logo-01.png" 
+                src="/images/velox-logo.png" 
                 alt="Vvelox Global Business Advisory" 
                 className="h-10 md:h-12"
               />
