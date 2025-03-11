@@ -63,7 +63,7 @@ export default function PRPathways() {
         {
           title: "British Columbia PNP",
           description: "BC's program for skilled workers, graduates, entrepreneurs, and key workers.",
-          image: "https://images.pexels.com/photos/2422588/pexels-photo-2422588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          image: "https://images.unsplash.com/photo-1609108079856-3044b8f9dfbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
           requirements: [
             "Skills Immigration for skilled workers",
             "Express Entry BC for Express Entry candidates",
@@ -74,7 +74,7 @@ export default function PRPathways() {
         {
           title: "Alberta Advantage Immigration Program",
           description: "Alberta's program focusing on workers and entrepreneurs who benefit the province.",
-          image: "https://images.pexels.com/photos/1486854/pexels-photo-1486854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          image: "https://images.unsplash.com/photo-1539167380297-5d17995ca716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
           requirements: [
             "Alberta Express Entry stream",
             "Alberta Opportunity stream for workers in Alberta",
@@ -92,7 +92,7 @@ export default function PRPathways() {
         {
           title: "Start-up Visa Program",
           description: "For innovative entrepreneurs with a qualifying business idea.",
-          image: "https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          image: "https://images.unsplash.com/photo-1546913199-55e06682967e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
           requirements: [
             "Support from a designated organization (angel investor, venture capital fund, or business incubator)",
             "Language proficiency (CLB 5+)",
