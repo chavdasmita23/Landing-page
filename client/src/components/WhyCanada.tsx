@@ -31,13 +31,13 @@ export default function WhyCanada() {
     {
       title: "World-Class Education",
       description: "Access affordable, globally-recognized education institutions for you and your family.",
-      image: "https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image: "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       color: "from-yellow-500 to-amber-600"
     },
     {
       title: "Canadian landscape",
       description: "Explore breathtaking natural beauty with diverse landscapes from mountains to coastlines.",
-      image: "https://images.unsplash.com/photo-1563466438-7fed5dc8782b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       color: "from-cyan-500 to-blue-600"
     }
   ];

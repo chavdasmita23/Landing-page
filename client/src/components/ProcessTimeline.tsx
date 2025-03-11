@@ -124,14 +124,14 @@ export default function ProcessTimeline() {
         </div>
 
         {/* Active Step Content */}
-        {timelineSteps.map((step) => (
+        {timelineSteps.map((step, index) => (
           <div 
             key={step.id}
             className={`transition-all duration-500 ${
               activeStep === step.id ? "opacity-100 max-h-[1000px]" : "opacity-0 max-h-0 overflow-hidden absolute"
             }`}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
               <div className="order-2 md:order-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                   <span className="text-[#2563EB]">Step {step.id}:</span> {step.title}
@@ -157,11 +157,11 @@ export default function ProcessTimeline() {
                 </Button>
               </div>
               <div className="order-1 md:order-2">
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1">
                   <img 
                     src={step.image} 
                     alt={step.title} 
-                    className="w-full h-80 md:h-96 object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-80 md:h-96 object-cover hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.src = "https://images.unsplash.com/photo-1501084817091-a4f3d1d19e07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
