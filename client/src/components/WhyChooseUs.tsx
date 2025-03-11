@@ -1,78 +1,244 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { 
   CheckCircle, 
   Calculator, 
   FileText, 
   Hourglass, 
   Map, 
-  RotateCcw 
+  RotateCcw,
+  HelpCircle,
+  ChevronUp,
+  ChevronDown,
+  Users,
+  Clock,
+  Award
 } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const services = [
   {
-    icon: <CheckCircle className="h-5 w-5" />,
+    icon: <CheckCircle className="h-6 w-6" />,
+    question: "Confused About Express Entry Eligibility?",
     title: "Express Entry Eligibility",
-    description: "Our Express Entry specialists analyze your profile comprehensively to identify the ideal immigration program match, maximizing your CRS score and ensuring successful entry into the pool."
+    description: "Our Express Entry specialists analyze your profile comprehensively to identify the ideal immigration program match, maximizing your CRS score and ensuring successful entry into the pool.",
+    stats: { success: "98%", clients: "5,000+", timeSaved: "3-6 months" }
   },
   {
-    icon: <Calculator className="h-5 w-5" />,
+    icon: <Calculator className="h-6 w-6" />,
+    question: "Struggling with CRS Points Calculation?",
     title: "CRS Points Optimization",
-    description: "Our point-optimization experts conduct thorough assessments to identify every legitimate point-scoring opportunity in your profile, frequently finding 10-20 additional points others miss."
+    description: "Our point-optimization experts conduct thorough assessments to identify every legitimate point-scoring opportunity in your profile, frequently finding 10-20 additional points others miss.",
+    stats: { success: "91%", clients: "4,200+", timeSaved: "2-4 months" }
   },
   {
-    icon: <FileText className="h-5 w-5" />,
+    icon: <FileText className="h-6 w-6" />,
+    question: "Overwhelmed by Documentation Requirements?",
     title: "Document Verification",
-    description: "Our document specialists meticulously verify every document against IRCC requirements, ensuring your evidence meets the exact standards that prevent costly rejections."
+    description: "Our document specialists meticulously verify every document against IRCC requirements, ensuring your evidence meets the exact standards that prevent costly rejections.",
+    stats: { success: "97%", clients: "6,500+", timeSaved: "1-3 months" }
   },
   {
-    icon: <Hourglass className="h-5 w-5" />,
+    icon: <Hourglass className="h-6 w-6" />,
+    question: "Frustrated by Lengthy Processing Delays?",
     title: "Processing Time Optimization",
-    description: "Our streamlined process and strategic application timing reduce processing delays by 25% compared to self-managed applications, with proactive follow-ups to keep your case moving."
+    description: "Our streamlined process and strategic application timing reduce processing delays by 25% compared to self-managed applications, with proactive follow-ups to keep your case moving.",
+    stats: { success: "88%", clients: "3,800+", timeSaved: "4-8 months" }
   },
   {
-    icon: <Map className="h-5 w-5" />,
+    icon: <Map className="h-6 w-6" />,
+    question: "Uncertain About Provincial Nomination Options?",
     title: "Provincial Nomination Expertise",
-    description: "Our PNP specialists stay current with the frequently changing eligibility criteria across all Canadian provinces and territories, directing you only to programs where you'll qualify."
+    description: "Our PNP specialists stay current with the frequently changing eligibility criteria across all Canadian provinces and territories, directing you only to programs where you'll qualify.",
+    stats: { success: "95%", clients: "2,900+", timeSaved: "3-5 months" }
   },
   {
-    icon: <RotateCcw className="h-5 w-5" />,
+    icon: <RotateCcw className="h-6 w-6" />,
+    question: "Recovering from a Previous Rejection?",
     title: "Rejection Recovery",
-    description: "Our rejection-recovery team specializes in analyzing previous refusals, addressing the specific issues, and creating compelling new applications with 94% success rate for previously refused clients."
+    description: "Our rejection-recovery team specializes in analyzing previous refusals, addressing the specific issues, and creating compelling new applications with 94% success rate for previously refused clients.",
+    stats: { success: "94%", clients: "1,800+", timeSaved: "6-12 months" }
+  }
+];
+
+const testimonials = [
+  {
+    name: "Priya Sharma",
+    country: "India",
+    text: "Vvelox helped me optimize my CRS score by 22 points, which made all the difference in receiving my ITA. Their experts guided me through every step of the process.",
+    rating: 5,
+    service: "Express Entry"
+  },
+  {
+    name: "Ahmad Khalid",
+    country: "Pakistan",
+    text: "After a previous rejection, I was hesitant to try again. Vvelox's rejection recovery team identified exactly where my application went wrong and helped me secure provincial nomination.",
+    rating: 5,
+    service: "PNP Application"
+  },
+  {
+    name: "Li Wei",
+    country: "China",
+    text: "The document verification service saved me from potential rejection. Their attention to detail caught several issues that I would have missed on my own.",
+    rating: 5,
+    service: "Document Verification"
   }
 ];
 
 export default function WhyChooseUs() {
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+  const [activeTab, setActiveTab] = useState("expertise");
+  
+  const toggleAccordion = (index: number) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
+  };
+
+  const scrollToAssessment = () => {
+    const element = document.getElementById("assessment");
+    if (element) {
+      const navbarHeight = 80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+  
   return (
-    <section id="services" className="py-16 bg-gray-50">
+    <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Why Choose Vvelox Global Business Advisory?
+        <div className="text-center mb-16">
+          <span className="inline-block text-[#E31937] font-semibold text-sm tracking-wider uppercase mb-2">OUR EXPERTISE</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6">
+            Why Choose Vvelox Global?
           </h2>
           <div className="w-20 h-1 bg-[#E31937] mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Our experienced team offers specialized immigration expertise for every step of your Canadian PR journey.
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            Our experienced team offers specialized immigration expertise for every step of your Canadian PR journey, addressing your specific challenges with proven solutions.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="bg-white hover:shadow-lg transition duration-300">
-              <CardContent className="p-8">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4">
-                    <div className="bg-[#2563EB]/10 p-3 rounded-full">
-                      {service.icon}
+        <Tabs defaultValue="expertise" className="mb-12" onValueChange={setActiveTab}>
+          <div className="flex justify-center mb-8">
+            <TabsList className="grid w-full max-w-md grid-cols-2">
+              <TabsTrigger value="expertise" className="text-base">Our Expertise</TabsTrigger>
+              <TabsTrigger value="testimonials" className="text-base">Client Success Stories</TabsTrigger>
+            </TabsList>
+          </div>
+          
+          <TabsContent value="expertise" className="animate-in fade-in-50 duration-500">
+            <div className="grid grid-cols-1 gap-4 md:gap-6 max-w-4xl mx-auto">
+              {services.map((service, index) => (
+                <div 
+                  key={index} 
+                  className={`bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 ${
+                    activeAccordion === index ? 'shadow-xl ring-1 ring-[#2563EB]/20' : 'hover:shadow-lg'
+                  }`}
+                >
+                  <div 
+                    className="p-6 cursor-pointer flex justify-between items-center" 
+                    onClick={() => toggleAccordion(index)}
+                  >
+                    <div className="flex items-center">
+                      <div className={`p-3 rounded-full mr-4 ${
+                        activeAccordion === index ? 'bg-[#2563EB] text-white' : 'bg-[#2563EB]/10 text-[#2563EB]'
+                      }`}>
+                        {service.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-800">{service.question}</h3>
+                    </div>
+                    <div>
+                      {activeAccordion === index ? (
+                        <ChevronUp className="h-5 w-5 text-gray-500" />
+                      ) : (
+                        <ChevronDown className="h-5 w-5 text-gray-500" />
+                      )}
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
+                  
+                  <div 
+                    className={`transition-all duration-500 overflow-hidden ${
+                      activeAccordion === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="p-6 pt-0 border-t border-gray-100">
+                      <p className="text-gray-600 mb-6">{service.description}</p>
+                      
+                      <div className="grid grid-cols-3 gap-4 mb-6">
+                        <div className="bg-gray-50 p-4 rounded-lg text-center">
+                          <Award className="h-5 w-5 text-[#E31937] mx-auto mb-2" />
+                          <span className="block text-lg font-bold text-gray-800">{service.stats.success}</span>
+                          <span className="text-sm text-gray-500">Success Rate</span>
+                        </div>
+                        <div className="bg-gray-50 p-4 rounded-lg text-center">
+                          <Users className="h-5 w-5 text-[#E31937] mx-auto mb-2" />
+                          <span className="block text-lg font-bold text-gray-800">{service.stats.clients}</span>
+                          <span className="text-sm text-gray-500">Clients Helped</span>
+                        </div>
+                        <div className="bg-gray-50 p-4 rounded-lg text-center">
+                          <Clock className="h-5 w-5 text-[#E31937] mx-auto mb-2" />
+                          <span className="block text-lg font-bold text-gray-800">{service.stats.timeSaved}</span>
+                          <span className="text-sm text-gray-500">Time Saved</span>
+                        </div>
+                      </div>
+                      
+                      <Button 
+                        onClick={scrollToAssessment}
+                        className="w-full bg-[#2563EB] hover:bg-blue-700 text-white"
+                      >
+                        Check Your Eligibility Now
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="testimonials" className="animate-in fade-in-50 duration-500">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="bg-white shadow-lg border-0 overflow-hidden">
+                  <CardHeader className="pb-2 relative pt-12">
+                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-[#E31937]/10 p-4 rounded-full">
+                        <HelpCircle className="h-8 w-8 text-[#E31937]" />
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-bold text-center text-gray-800">{testimonial.name}</h3>
+                    <p className="text-gray-500 text-center text-sm">
+                      From {testimonial.country} • {testimonial.service}
+                    </p>
+                    <div className="flex justify-center mt-2">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-2">
+                    <p className="text-gray-600 italic text-center">"{testimonial.text}"</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+        
+        <div className="bg-[#2563EB]/5 p-8 rounded-2xl shadow-inner mt-12 max-w-5xl mx-auto">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to begin your Canadian journey?</h3>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+              Our team of immigration specialists is ready to guide you through every step of the process, ensuring your best chance at success.
+            </p>
+            <Button 
+              onClick={scrollToAssessment}
+              className="bg-[#E31937] hover:bg-red-700 text-white px-8 py-6 text-lg font-bold shadow-lg transition-transform duration-300 transform hover:scale-105"
+              size="lg"
+            >
+              Get Your Free Eligibility Assessment
+            </Button>
+          </div>
         </div>
       </div>
     </section>
