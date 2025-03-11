@@ -12,7 +12,11 @@ import {
   Users,
   Clock,
   Award,
-  ArrowRight
+  ArrowRight,
+  Heart,
+  TrendingUp,
+  Smile,
+  GraduationCap
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -93,6 +97,58 @@ const services = [
   }
 ];
 
+
+const reasons = [
+  {
+    title: "Healthcare System",
+    description: "Benefit from Canada's comprehensive universal healthcare system providing quality medical services.",
+    icon: <Heart className="h-6 w-6" />,
+    image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    bullets: [
+      "Universal healthcare coverage for permanent residents",
+      "World-class medical facilities and professionals",
+      "Comprehensive coverage for essential medical services",
+      "Focus on preventive care and wellness"
+    ]
+  },
+  {
+    title: "Strong Economy",
+    description: "Enjoy opportunities in a resilient economy with diverse industries and high living standards.",
+    icon: <TrendingUp className="h-6 w-6" />,
+    image: "https://images.unsplash.com/photo-1616587896595-16aca8aaa001?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    bullets: [
+      "Multiple thriving sectors including tech and finance",
+      "Stable banking and economic systems",
+      "Strong employment protections",
+      "Competitive salaries and benefits"
+    ]
+  },
+  {
+    title: "Quality Lifestyle",
+    description: "Experience high quality of life with clean environments, safety, and cultural diversity.",
+    icon: <Smile className="h-6 w-6" />,
+    image: "https://images.unsplash.com/photo-1559511260-66a654ae982a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    bullets: [
+      "Consistently ranked among top countries for quality of life",
+      "Safe communities and low crime rates",
+      "Clean environment with abundant natural spaces",
+      "Diverse, inclusive, and multicultural society"
+    ]
+  },
+  {
+    title: "World-Class Education",
+    description: "Access to globally recognized universities and education institutions for you and your family.",
+    icon: <GraduationCap className="h-6 w-6" />,
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    bullets: [
+      "Internationally recognized education system",
+      "Affordable higher education compared to other countries",
+      "Quality public education from kindergarten to high school",
+      "Numerous scholarship opportunities"
+    ]
+  }
+];
+
 const testimonials = [
   {
     name: "Priya Sharma",
@@ -134,6 +190,9 @@ export default function WhyChooseUs() {
     }
   };
 
+  // Canadian landscape image for the hero section
+  const canadianLandscapeImage = "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
+
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,7 +211,7 @@ export default function WhyChooseUs() {
           <div className="flex justify-center mb-8">
             <TabsList className="grid w-full max-w-md grid-cols-2">
               <TabsTrigger value="expertise" className="text-base">Our Expertise</TabsTrigger>
-              <TabsTrigger value="testimonials" className="text-base">Client Success Stories</TabsTrigger>
+              {/*Removed Testimonials Tab*/}
             </TabsList>
           </div>
 
@@ -225,35 +284,7 @@ export default function WhyChooseUs() {
             </div>
           </TabsContent>
 
-          <TabsContent value="testimonials" className="animate-in fade-in-50 duration-500">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="bg-white shadow-lg border-0 overflow-hidden">
-                  <CardHeader className="pb-2 relative pt-12">
-                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-[#E31937]/10 p-4 rounded-full">
-                        <HelpCircle className="h-8 w-8 text-[#E31937]" />
-                      </div>
-                    </div>
-                    <h3 className="text-lg font-bold text-center text-gray-800">{testimonial.name}</h3>
-                    <p className="text-gray-500 text-center text-sm">
-                      From {testimonial.country} • {testimonial.service}
-                    </p>
-                    <div className="flex justify-center mt-2">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-2">
-                    <p className="text-gray-600 italic text-center">"{testimonial.text}"</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+          {/* Removed Testimonials Tab Content */}
         </Tabs>
 
         <div className="bg-[#2563EB]/5 p-8 rounded-2xl shadow-inner mt-12 max-w-5xl mx-auto">
@@ -271,6 +302,78 @@ export default function WhyChooseUs() {
             </Button>
           </div>
         </div>
+        <section id="why-canada" className="py-16 md:py-24 bg-gray-50 mt-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                Why Choose Canada?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Canada consistently ranks among the world's best countries to live and work in, offering numerous advantages for immigrants.
+              </p>
+
+              {/* Canadian Landscape Image */}
+              <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-2xl max-w-5xl mx-auto mb-16">
+                <img 
+                  src={canadianLandscapeImage}
+                  alt="Beautiful Canadian Landscape"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                  <div className="p-8 text-left">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                      Discover Canada's Natural Beauty
+                    </h3>
+                    <p className="text-white/90 max-w-2xl">
+                      From breathtaking mountains to pristine lakes and vibrant cities, Canada offers stunning landscapes and an exceptional quality of life.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {reasons.map((reason, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow"
+                >
+                  <div className="h-48 relative">
+                    <img 
+                      src={reason.image} 
+                      alt={reason.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                      <div className="p-6">
+                        <div className="flex items-center mb-2">
+                          <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg text-white mr-3">
+                            {reason.icon}
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white">
+                            {reason.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-700 mb-6">
+                      {reason.description}
+                    </p>
+                    <ul className="space-y-3">
+                      {reason.bullets.map((bullet, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );

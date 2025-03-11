@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 
-// Enhanced program data with more details
+// Enhanced program data with more details and images
 const pathwayData = {
   expressEntry: {
     title: "Express Entry",
@@ -129,7 +129,7 @@ export default function PRPathways() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const activePrograms = pathwayData[activeTab as keyof typeof pathwayData].programs;
-  
+
   // Handle carousel logic
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -140,17 +140,17 @@ export default function PRPathways() {
       });
     }
   };
-  
+
   const nextSlide = () => {
     const newIndex = (currentSlide + 1) % activePrograms.length;
     goToSlide(newIndex);
   };
-  
+
   const prevSlide = () => {
     const newIndex = (currentSlide - 1 + activePrograms.length) % activePrograms.length;
     goToSlide(newIndex);
   };
-  
+
   // Reset current slide when tab changes
   useEffect(() => {
     setCurrentSlide(0);
@@ -184,7 +184,7 @@ export default function PRPathways() {
             Multiple immigration pathways designed to match your unique qualifications and circumstances. Our team provides expert guidance for each option.
           </p>
         </div>
-        
+
         <Tabs defaultValue="expressEntry" className="max-w-5xl mx-auto" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-12">
             <TabsList className="p-1 bg-gray-100 rounded-full">
@@ -208,7 +208,7 @@ export default function PRPathways() {
               </TabsTrigger>
             </TabsList>
           </div>
-          
+
           {Object.keys(pathwayData).map((pathway) => (
             <TabsContent 
               key={pathway} 
@@ -225,7 +225,7 @@ export default function PRPathways() {
                     {pathwayData[pathway as keyof typeof pathwayData].description}
                   </p>
                 </div>
-                
+
                 {/* Carousel Navigation */}
                 {pathwayData[pathway as keyof typeof pathwayData].programs.length > 1 && (
                   <div className="flex justify-between items-center px-8 py-4 border-b border-gray-100">
@@ -235,7 +235,7 @@ export default function PRPathways() {
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
-                    
+
                     <div className="flex space-x-2">
                       {pathwayData[pathway as keyof typeof pathwayData].programs.map((_, index) => (
                         <button
@@ -249,7 +249,7 @@ export default function PRPathways() {
                         ></button>
                       ))}
                     </div>
-                    
+
                     <button 
                       onClick={nextSlide}
                       className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
@@ -258,7 +258,7 @@ export default function PRPathways() {
                     </button>
                   </div>
                 )}
-                
+
                 {/* Program Carousel */}
                 <div 
                   ref={carouselRef}
@@ -296,7 +296,7 @@ export default function PRPathways() {
                             </div>
                           </div>
                         </div>
-                        
+
                         {/* Content Section */}
                         <div className="p-6 md:p-8">
                           <div className="mb-6">
@@ -308,7 +308,7 @@ export default function PRPathways() {
                             </div>
                             <p className="text-gray-600">{program.eligibility}</p>
                           </div>
-                          
+
                           <div className="mb-6">
                             <h5 className="text-lg font-semibold text-gray-700 mb-3">Key Features</h5>
                             <ul className="space-y-3">
@@ -320,7 +320,7 @@ export default function PRPathways() {
                               ))}
                             </ul>
                           </div>
-                          
+
                           {/* Provincial Options (only for PNP) */}
                           {pathway === 'pnp' && program.provinces && (
                             <div className="mb-6">
@@ -334,7 +334,7 @@ export default function PRPathways() {
                               </div>
                             </div>
                           )}
-                          
+
                           {/* Family Options (only for Family) */}
                           {pathway === 'family' && program.eligibleRelatives && (
                             <div className="mb-6">
@@ -348,7 +348,7 @@ export default function PRPathways() {
                               </div>
                             </div>
                           )}
-                          
+
                           <div className="flex items-center justify-between mb-6">
                             <div>
                               <span className="block text-sm text-gray-500">Processing Time</span>
