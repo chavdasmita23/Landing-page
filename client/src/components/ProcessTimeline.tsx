@@ -275,12 +275,12 @@ export default function ProcessTimeline() {
         }
 
         .scrollbar-thin::-webkit-scrollbar-thumb {
-          background: rgba(200, 200, 200, 0.3);
+          background: #ccc;
           border-radius: 3px;
         }
 
         .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-          background: rgba(200, 200, 200, 0.5);
+          background: #aaa;
         }
       `}</style>
     </section>
