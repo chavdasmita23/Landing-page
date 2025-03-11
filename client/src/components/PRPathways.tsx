@@ -284,6 +284,8 @@ export default function PRPathways() {
                               // Better fallback images based on program type
                               const fallbacks = {
                                 "Express Entry": "https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "Provincial Nominee Program": "https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "Family Sponsorship": "https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
                                 "Provincial Nominee Program": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
                                 "Family Sponsorship": "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
                                 "Atlantic Immigration Program": "https://images.unsplash.com/photo-1594749794743-7ad651ce0b96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
