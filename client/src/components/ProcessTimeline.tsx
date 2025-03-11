@@ -76,6 +76,7 @@ import { Map, Mail, Send, TrendingUp } from "lucide-react";
 
 export default function ProcessTimeline() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
   
   const scrollToAssessment = () => {
     const element = document.getElementById("assessment");
@@ -86,11 +87,19 @@ export default function ProcessTimeline() {
     }
   };
   
+  const handleStepClick = (index: number) => {
+    setIsAnimating(true);
+    setActiveStep(activeStep === index ? null : index);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
+  
   return (
     <section id="process" className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block text-[#E31937] font-semibold text-sm tracking-wider uppercase mb-2">YOUR JOURNEY</span>
+          <div className="inline-flex items-center justify-center bg-[#E31937]/10 px-3 py-1 rounded-full mb-2">
+            <span className="text-[#E31937] font-semibold text-sm tracking-wider uppercase">YOUR JOURNEY</span>
+          </div>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6">The Canadian PR Process</h2>
           <div className="w-20 h-1 bg-[#E31937] mx-auto mb-6"></div>
           <p className="text-gray-600 text-lg">
@@ -109,13 +118,14 @@ export default function ProcessTimeline() {
               <div key={index} className="relative">
                 <div className="flex flex-col items-center">
                   <div 
-                    className={`z-10 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 transition-all duration-300 ${
-                      activeStep === index ? 'scale-125 shadow-lg' : 'hover:scale-110'
-                    }`}
+                    className={`z-10 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 transition-all duration-500 ${
+                      activeStep === index ? 'scale-125 shadow-lg ring-4 ring-white' : 'hover:scale-110 transform hover:rotate-3'
+                    } cursor-pointer relative overflow-hidden`}
                     style={{ backgroundColor: step.color }}
-                    onClick={() => setActiveStep(activeStep === index ? null : index)}
+                    onClick={() => handleStepClick(index)}
                   >
-                    {step.number}
+                    <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
+                    <span className="relative z-10">{step.number}</span>
                   </div>
                   <h3 className="text-center font-bold text-gray-800 text-lg mb-1">{step.title}</h3>
                   <p className="text-center text-sm text-gray-600">{step.description}</p>
@@ -123,7 +133,7 @@ export default function ProcessTimeline() {
                   {/* Expandable Details */}
                   <div 
                     className={`mt-4 bg-white rounded-lg shadow-lg p-6 transition-all duration-500 overflow-hidden ${
-                      activeStep === index ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0 pointer-events-none'
+                      activeStep === index ? 'opacity-100 max-h-[500px] transform scale-100' : 'opacity-0 max-h-0 pointer-events-none transform scale-95'
                     }`}
                   >
                     <p className="text-gray-700 mb-4">{step.details}</p>
@@ -173,25 +183,35 @@ export default function ProcessTimeline() {
             <div key={index} className="flex mb-8 last:mb-0">
               <div className="flex flex-col items-center mr-6">
                 <div 
-                  className="text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md"
+                  className={`text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shadow-md transition-all duration-300 ${
+                    activeStep === index ? 'scale-110 ring-2 ring-white' : ''
+                  } relative overflow-hidden`}
                   style={{ backgroundColor: step.color }}
                 >
-                  {step.number}
+                  <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
+                  <span className="relative z-10">{step.number}</span>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <div className="h-full w-0.5 bg-gray-200 mt-2 flex-grow"></div>
+                  <div 
+                    className={`h-full w-0.5 bg-gray-200 mt-2 flex-grow transition-all duration-500 ${
+                      activeStep === index ? 'opacity-100' : 'opacity-70'
+                    }`}
+                    style={{
+                      background: `linear-gradient(to bottom, ${step.color}, #e5e7eb)`
+                    }}
+                  ></div>
                 )}
               </div>
               <div className="flex-grow">
                 <Card 
                   className={`bg-white hover:shadow-lg transition-all duration-300 cursor-pointer ${
-                    activeStep === index ? 'ring-2 shadow-xl' : ''
-                  }`}
+                    activeStep === index ? 'ring-2 shadow-xl scale-[1.03]' : 'hover:scale-[1.02]'
+                  } rounded-xl overflow-hidden`}
                   style={{ 
                     borderColor: activeStep === index ? step.color : 'transparent',
                     borderWidth: activeStep === index ? '2px' : '0px'
                   }}
-                  onClick={() => setActiveStep(activeStep === index ? null : index)}
+                  onClick={() => handleStepClick(index)}
                 >
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold text-gray-800 mb-2">{step.title}</h3>
