@@ -271,13 +271,13 @@ export default function PRPathways() {
                       className="min-w-full scroll-snap-align-start"
                       style={{ scrollSnapAlign: 'start' }}
                     >
-                      <div className="grid md:grid-cols-2 gap-0">
-                        {/* Image Section */}
-                        <div className="relative h-64 md:h-auto">
+                      <div className="grid md:grid-cols-2 gap-0 h-full">
+                        {/* Image Section - Fixed equal height */}
+                        <div className="relative h-64 md:h-[400px]">
                           <img 
                             src={program.image} 
                             alt={program.title} 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center"
                             loading="lazy"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
@@ -312,8 +312,8 @@ export default function PRPathways() {
                           </div>
                         </div>
 
-                        {/* Content Section */}
-                        <div className="p-6 md:p-8">
+                        {/* Content Section - With consistent height */}
+                        <div className="p-6 md:p-8 h-full flex flex-col">
                           <div className="mb-6">
                             <div className="flex items-center justify-between mb-4">
                               <h5 className="text-lg font-semibold text-gray-700">Eligibility</h5>
@@ -324,7 +324,7 @@ export default function PRPathways() {
                             <p className="text-gray-600">{program.eligibility}</p>
                           </div>
 
-                          <div className="mb-6">
+                          <div className="mb-6 flex-grow">
                             <h5 className="text-lg font-semibold text-gray-700 mb-3">Key Features</h5>
                             <ul className="space-y-3">
                               {program.features.map((feature, idx) => (
