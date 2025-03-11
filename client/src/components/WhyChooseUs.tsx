@@ -120,7 +120,7 @@ const testimonials = [
 export default function WhyChooseUs() {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
   const [activeTab, setActiveTab] = useState("expertise");
-  
+
   const toggleAccordion = (index: number) => {
     setActiveAccordion(activeAccordion === index ? null : index);
   };
@@ -133,7 +133,7 @@ export default function WhyChooseUs() {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
-  
+
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +147,7 @@ export default function WhyChooseUs() {
             Our experienced team offers specialized immigration expertise for every step of your Canadian PR journey, addressing your specific challenges with proven solutions.
           </p>
         </div>
-        
+
         <Tabs defaultValue="expertise" className="mb-12" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-8">
             <TabsList className="grid w-full max-w-md grid-cols-2">
@@ -155,7 +155,7 @@ export default function WhyChooseUs() {
               <TabsTrigger value="testimonials" className="text-base">Client Success Stories</TabsTrigger>
             </TabsList>
           </div>
-          
+
           <TabsContent value="expertise" className="animate-in fade-in-50 duration-500">
             <div className="grid grid-cols-1 gap-4 md:gap-6 max-w-4xl mx-auto">
               {services.map((service, index) => (
@@ -185,7 +185,7 @@ export default function WhyChooseUs() {
                       )}
                     </div>
                   </div>
-                  
+
                   <div 
                     className={`transition-all duration-500 overflow-hidden ${
                       activeAccordion === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
@@ -193,7 +193,7 @@ export default function WhyChooseUs() {
                   >
                     <div className="p-6 pt-0 border-t border-gray-100">
                       <p className="text-gray-600 mb-6">{service.description}</p>
-                      
+
                       <div className="mb-6">
                         <div className="bg-[#2563EB]/5 p-4 rounded-lg">
                           <h4 className="text-[#2563EB] font-medium mb-3">What we provide:</h4>
@@ -207,7 +207,7 @@ export default function WhyChooseUs() {
                           </ul>
                         </div>
                       </div>
-                      
+
                       <Button 
                         onClick={scrollToAssessment}
                         className="w-full bg-[#2563EB] hover:bg-blue-700 text-white group transition-all duration-300"
@@ -224,7 +224,7 @@ export default function WhyChooseUs() {
               ))}
             </div>
           </TabsContent>
-          
+
           <TabsContent value="testimonials" className="animate-in fade-in-50 duration-500">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {testimonials.map((testimonial, index) => (
@@ -255,7 +255,7 @@ export default function WhyChooseUs() {
             </div>
           </TabsContent>
         </Tabs>
-        
+
         <div className="bg-[#2563EB]/5 p-8 rounded-2xl shadow-inner mt-12 max-w-5xl mx-auto">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to begin your Canadian journey?</h3>
