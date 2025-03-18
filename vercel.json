@@ -8,5 +8,6 @@
       ],
     "rewrites": [
       { "source": "/(.*)", "destination": "dist/index.js" }
-    ]
+    ],
+    "buildCommand": "npm install && npm run build"
   }
