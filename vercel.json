@@ -1,5 +1,8 @@
 {
     "version": 2,
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
     "builds": [
         {
           "src": "dist/index.js",
@@ -8,6 +11,5 @@
       ],
     "rewrites": [
       { "source": "/(.*)", "destination": "dist/index.js" }
-    ],
-    "buildCommand": "npm install && npm run build"
+    ]
   }
