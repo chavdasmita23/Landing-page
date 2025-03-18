@@ -61,7 +61,7 @@ app.use((req, res, next) => {
   const port = 5000;
   server.listen({
     port,
-    host: "192.168.1.17",
+    host: "127.0.0.1",
   }, () => {
     log(`serving on port ${port}`);
   });
